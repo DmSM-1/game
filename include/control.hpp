@@ -10,4 +10,8 @@ class Control{
     public:
         Control(const Process& new_proc): 
         proc(new_proc){}
+
+        int start_conrol_loop();     
+
+
 };

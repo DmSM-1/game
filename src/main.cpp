@@ -12,8 +12,8 @@ int main(int argc, char** argv){
     Process proc(*view);
 
     Control control(proc);
+    control.start_conrol_loop();
+    view->print_name("EEE\n");
 
-    view->print_name("IEEE\n");
-    
     return 0;
 }
