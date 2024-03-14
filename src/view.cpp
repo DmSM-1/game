@@ -13,7 +13,6 @@ View* View::get(
 
     if (view)
         return view;
-
     
     if (mode == "graphic" || mode == "g"){
         view = new Gview;

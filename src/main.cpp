@@ -9,7 +9,11 @@ int main(int argc, char** argv){
     
     View *view = View::get("text");
 
-    // Process proc();
+    Process proc(*view);
 
+    Control control(proc);
+
+    view->print_name("IEEE\n");
+    
     return 0;
 }

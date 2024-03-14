@@ -8,7 +8,8 @@ class Process{
         View& view;
 
     public:
-        // Process(View& new_view): view(new_view){}
+        Process(View& new_view):
+        view(new_view){}
 
         ~Process(){}
 
