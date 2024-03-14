@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv){
     
-    // View *view = View::get("text");
+    View *view = View::get("text");
 
     // Process proc();
 

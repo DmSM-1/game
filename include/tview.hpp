@@ -9,4 +9,8 @@ class Tview: public View{
         Tview(){}
 
         ~Tview(){}
+
+        void print_name(std::string name = "Default"){
+            std::cout << name;
+        }
 };

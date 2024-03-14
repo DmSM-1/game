@@ -11,4 +11,6 @@ class View{
         static View* get(std::string mode = "text");
 
         virtual ~View();
+
+        virtual void print_name(std::string name = "Default") = 0;
 };

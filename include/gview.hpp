@@ -9,8 +9,8 @@ class Gview: public View{
         Gview(){}
 
         ~Gview(){}
-
-        // void print_article(){}
-
-        // void show(){}
+    
+        void print_name(std::string name = "Default"){
+            std::cout << name;
+        }
 };
