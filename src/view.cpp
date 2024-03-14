@@ -14,15 +14,15 @@ View* View::get(
         return view;
 
     
-    if (mode == "graphic" || mode == "g"){
-        view = new Gview;
-        return view;
-    }
+    // if (mode == "graphic" || mode == "g"){
+    //     view = new Gview;
+    //     return view;
+    // }
 
-    if (mode == "text" || mode == "t"){
-        view = new Tview;
-        return view;
-    }
+    // if (mode == "text" || mode == "t"){
+    //     view = new Tview;
+    //     return view;
+    // }
 
     return NULL;
 }
