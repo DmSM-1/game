@@ -10,7 +10,7 @@ class Gview: public View{
 
         ~Gview(){}
 
-        void print_article(){}
+        // void print_article(){}
 
-        void show(){}
+        // void show(){}
 };
