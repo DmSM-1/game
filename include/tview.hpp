@@ -19,4 +19,22 @@ class Tview: public View{
         ){
             std::cout << name;
         }
+
+        void set(
+            winsize ws
+        ){
+            
+        }
+
+        // int add(
+        //     std::list<coor> coors
+        // ){
+        //     return 0;
+        // }
+
+        // void show(
+
+        // ){
+            
+        // }
 };

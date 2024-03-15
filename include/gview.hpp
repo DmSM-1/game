@@ -15,4 +15,16 @@ class Gview: public View{
         ){
             std::cout << name;
         }
+
+        void set(
+            winsize ws
+        ){
+            
+        }
+
+        // void show(
+
+        // ){
+            
+        // }
 };

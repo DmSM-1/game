@@ -4,6 +4,8 @@
 #include <utility>
 #include <list>
 #include <sys/ioctl.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 
 using coor = std::pair<int, int>;
@@ -34,7 +36,7 @@ class Rabbit{
 
 class View{
     private:
-        struct winsize size;
+        
     public:
         static View* view;
         static View* get(std::string mode = "text");
@@ -42,4 +44,10 @@ class View{
         virtual ~View();
 
         virtual void print_name(std::string name = "Default") = 0;
+
+        virtual void set(winsize ws) = 0;
+
+        // virtual int add(int len, std::list<coor> coors) = 0;
+
+        // virtual void show() = 0;
 };
