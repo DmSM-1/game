@@ -19,12 +19,14 @@ class Process{
     private:
         View& view;
         struct winsize size;
-        // Snake snake;
+        Snake& snake;
         int rabbits_count = 10;
         std::vector<Rabbit*> rabbits;
+        
     public:
         Process(View& new_view):
-        view(new_view){
+        view(new_view),
+        snake(*(new Snake(new_view))){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
             view.set(size);
         }
