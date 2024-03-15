@@ -3,6 +3,7 @@
 #include <string>
 #include <utility>
 #include <list>
+#include <sys/ioctl.h>
 
 
 using coor = std::pair<int, int>;
@@ -33,7 +34,7 @@ class Rabbit{
 
 class View{
     private:
-
+        struct winsize size;
     public:
         static View* view;
         static View* get(std::string mode = "text");
