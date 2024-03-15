@@ -21,6 +21,7 @@ int Control::start_conrol_loop(){
                 printf("User print: {%c}\n", buffer[0]);
         
     }
-
+    while (read(0, buffer, 1) >= 0);
+    
     return 0;   
 }
