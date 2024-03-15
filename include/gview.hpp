@@ -23,8 +23,8 @@ class Gview: public View{
         }
 
         int add(
-            const int& len,
-            const std::list<coor, Stat>& coors
+            const coor& coord, 
+            const Stat& stat
         ){
             return 0;
         }

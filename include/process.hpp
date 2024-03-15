@@ -28,10 +28,14 @@ class Process{
         view(new_view),
         snake(*(new Snake(new_view))){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
+            size.ws_row -= 2;
             view.set(size);
+
+            snake.init(std::pair(size.ws_col/2, size.ws_row/2));
         }
 
         void step(Dir d){
+            snake.draw();
             view.show();
         }
 

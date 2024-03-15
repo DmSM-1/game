@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include "view.hpp"
+#include <iterator>
 
 
 class Snake{
@@ -18,5 +19,13 @@ class Snake{
                 body.push_back(
                 std::pair(head.first - i, head.first));
             dir = Right;
+        }
+
+        void draw(){
+            std::list<coor>::iterator it = body.begin();
+            view.add(*it, head);
+            it++;
+            for(;it!=body.end(); it++)
+                view.add(*it, snak);
         }
 };

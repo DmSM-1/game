@@ -35,7 +35,7 @@ class Tview: public View{
             const winsize& ws
         ){
             col = ws.ws_col;
-            row = ws.ws_row - 2;
+            row = ws.ws_row;
             botton_board = row - 1;
             left_board = col - 1; 
 
@@ -62,9 +62,10 @@ class Tview: public View{
 
 
         int add(
-            const int& len,
-            const std::list<coor, Stat>& coors
+            const coor& coord,
+            const Stat& stat
         ){
+            field[coord.first][coord.second] = stat;
             return 0;
         }
 

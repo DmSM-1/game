@@ -23,7 +23,7 @@ class View{
 
         virtual void set(const winsize& ws) = 0;
 
-        virtual int add(const int& len,const std::list<coor, Stat>& coors) = 0;
+        virtual int add(const coor& coord, const Stat& stat) = 0;
 
         virtual void show() = 0;
 };
