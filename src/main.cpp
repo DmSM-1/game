@@ -12,8 +12,10 @@ int main(int argc, char** argv){
     Process proc(*view);
 
     Control control(proc);
-    // control.start_conrol_loop();
     view->event_loop();
+
+
+    delete(view);
 
     return 0;
 }

@@ -21,15 +21,19 @@ class Tview: public View{
         int botton_board;
         int left_board;
 
-        struct termios p;
+        struct termios saved;
+        const int sleep_time = 100;
         const int fd = 0;
 
     public:
         Tview(){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
+            tcgetattr(fd, &saved);
         }
 
-        ~Tview(){}
+        ~Tview(){
+            tcsetattr(fd, TCSANOW, &saved);
+        }
 
         void print_name(
             std::string name = "Default"
@@ -53,7 +57,6 @@ class Tview: public View{
                 for(int j = 0; j < row; ++j)
                     field[i][j] = empt;
             }
-            std::cout << "eee\n";
 
             //border
             for(int i = 0; i < col; ++i){
@@ -107,12 +110,34 @@ class Tview: public View{
         }
 
         void event_loop(){
-            int a = tcgetattr(fd, &p);
-            p.c_lflag &= ~(ECHO| ICANON);
-            tcsetattr(fd, TCSANOW, &p);
+            
+            struct termios term;
+            tcgetattr(fd, &term);
+            term.c_lflag &= ~(ECHO| ICANON);
+            tcsetattr(fd, TCSANOW, &term);
 
-            while(true){
-
+            char buf = 0;
+            while (buf != 'q'){
+                if (read(0, &buf, 1) < 0)
+                    usleep(sleep_time);
+                
+                switch (buf){
+                    case 'w':
+                        // proc.step(Up);
+                        break;
+                    case 'd':
+                        // proc.step(Right);
+                        break;
+                    case 's':
+                        // proc.step(Down);
+                        break;
+                    case 'a':
+                        // proc.step(Left);
+                        break;
+                    default:
+                        // proc.step(None);
+                        break;
+                }
             }
         }
 };
