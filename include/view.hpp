@@ -8,9 +8,18 @@
 using coor = std::pair<int, int>;
 
 
+enum Dir{
+    Right,
+    Left,
+    Up,
+    Down
+};
+
+
 class Snake{
     public:
         int len;
+        Dir dir;      
         std::list<coor> body;    
 };
 
@@ -18,6 +27,7 @@ class Snake{
 class Rabbit{
     public:
         coor pos;
+        Rabbit(coor new_pos):pos(new_pos){}
 };
 
 
