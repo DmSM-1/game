@@ -12,7 +12,8 @@ int main(int argc, char** argv){
     Process proc(*view);
 
     Control control(proc);
-    control.start_conrol_loop();
+    // control.start_conrol_loop();
+    view->event_loop();
 
     return 0;
 }
