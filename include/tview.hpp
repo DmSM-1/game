@@ -3,10 +3,20 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <vector>
+#include <cstdlib>
+
 
 class Tview: public View{
     private:
         struct winsize size;
+        std::vector<std::vector<Stat>> field;
+
+        unsigned short col;
+        unsigned short row;
+        int botton_board;
+        int left_board;
+
     public:
         Tview(){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
@@ -20,21 +30,71 @@ class Tview: public View{
             std::cout << name;
         }
 
+
         void set(
-            winsize ws
+            const winsize& ws
         ){
-            
+            col = ws.ws_col;
+            row = ws.ws_row - 2;
+            botton_board = row - 1;
+            left_board = col - 1; 
+
+            //set field size
+            field.resize(col);
+            for(int i = 0; i < col; ++i){
+                field[i].resize(row);
+                for(int j = 0; j < row; ++j)
+                    field[i][j] = empt;
+            }
+            std::cout << "eee\n";
+
+            //border
+            for(int i = 0; i < col; ++i){
+                field[i][0] = bord;
+                field[i][botton_board] = bord;
+            }
+            for(int i = 0; i < botton_board; i++){
+                field[0][i] = bord;
+                field[left_board][i] = bord;
+            }
+
+        }   
+
+
+        int add(
+            const int& len,
+            const std::list<coor, Stat>& coors
+        ){
+            return 0;
         }
 
-        // int add(
-        //     std::list<coor> coors
-        // ){
-        //     return 0;
-        // }
+        void show(
+        ){
+            system("clear");
 
-        // void show(
+            for(int i = 0; i < row; ++i){
+                for(int j = 0; j < col; ++j){
+                    switch (field[j][i]){
+                        case rabb:
+                            std::cout << "r";
+                            break;
+                        case snak:
+                            std::cout << "=";
+                            break;
+                        case head:
+                            std::cout << "o";
+                            break;
+                        case bord:
+                            std::cout << "#";
+                            break;
+                        case empt:
+                            std::cout << " ";
+                            break;
+                    }
+                }
 
-        // ){
+                std::cout << "\n";
+            }
             
-        // }
+        }
 };

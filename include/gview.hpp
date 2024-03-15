@@ -17,14 +17,21 @@ class Gview: public View{
         }
 
         void set(
-            winsize ws
+            const winsize& ws
         ){
             
         }
 
-        // void show(
+        int add(
+            const int& len,
+            const std::list<coor, Stat>& coors
+        ){
+            return 0;
+        }
 
-        // ){
+        void show(
+
+        ){
             
-        // }
+        }
 };

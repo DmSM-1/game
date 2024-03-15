@@ -6,7 +6,7 @@
 #include "control.hpp"
 
 
-const double control_time = 100.0;
+const double control_time = 100000.0;
 char buffer[1] = {0};
 
 int Control::start_conrol_loop(){
@@ -17,9 +17,25 @@ int Control::start_conrol_loop(){
     while (buffer[0] != 'q'){
         if (read(0, buffer, 1) < 0)
             usleep(control_time);
-        else if (buffer[0] != '\n')
-                printf("User print: {%c}\n", buffer[0]);
         
+        switch (buffer[0]){
+            case 'w':
+                proc.step(Up);
+                break;
+            case 'd':
+                proc.step(Right);
+                break;
+            case 's':
+                proc.step(Down);
+                break;
+            case 'a':
+                proc.step(Left);
+                break;
+            default:
+                proc.step(None);
+                break;
+        }
+
     }
     while (read(0, buffer, 1) >= 0);
     

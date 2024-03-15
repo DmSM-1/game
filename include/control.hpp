@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "process.hpp"
+#include "mytypes.hpp"
 
 
 class Control{

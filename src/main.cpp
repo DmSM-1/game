@@ -13,7 +13,6 @@ int main(int argc, char** argv){
 
     Control control(proc);
     control.start_conrol_loop();
-    view->print_name("EEE\n");
 
     return 0;
 }
