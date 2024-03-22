@@ -25,6 +25,8 @@ class Tview: public View{
         const int sleep_time = 100;
         const int fd = 0;
 
+
+
     public:
         Tview(){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
@@ -32,6 +34,7 @@ class Tview: public View{
         }
 
         ~Tview(){
+            system("clear");
             tcsetattr(fd, TCSANOW, &saved);
         }
 
@@ -140,4 +143,5 @@ class Tview: public View{
                 }
             }
         }
+
 };

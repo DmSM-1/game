@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <iterator>
+#include <functional>
 #include "view.hpp"
 #include "snake.hpp"
 #include "rabbit.hpp"
@@ -24,21 +25,26 @@ class Process{
         std::vector<Rabbit*> rabbits;
         
     public:
+
+        void step(Dir d){
+            snake.draw();
+            view.show();
+        }
+
         Process(View& new_view):
         view(new_view),
         snake(*(new Snake(new_view))){
             ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
             size.ws_row -= 2;
             view.set(size);
-
-            
             snake.init(std::pair(size.ws_col/2, size.ws_row/2));
+
+            auto f = std::bind(&Process::step, this, std::placeholders::_1);
+            
         }
 
-        void step(Dir d){
-            snake.draw();
-            view.show();
-        }
+
+
 
             // // init snake
             // snake.len = 4;

@@ -11,13 +11,14 @@
 #include "mytypes.hpp"
 
 
+using func = std::function<void(Dir d)>;
 
 
 class View{
     private:
 
-    // protected:
-        // std::list<std::function> func;
+    protected:
+        std::list<func> func_list;
         
     public:
         static View* view;
@@ -34,4 +35,8 @@ class View{
         virtual void show() = 0;
 
         virtual void event_loop() = 0;
+
+        void add_subscriber(const func& fun){
+            func_list.push_back(fun);
+        }
 };

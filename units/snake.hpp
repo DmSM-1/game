@@ -30,6 +30,7 @@ class Snake{
         }
 
         // void step(){
-
+        //     body.pop_back();
+        //     // body.
         // }
 };

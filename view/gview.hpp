@@ -38,4 +38,5 @@ class Gview: public View{
         void event_loop(){
             
         }
+
 };
